@@ -12,12 +12,12 @@
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-  name: 'ContadorApp',  // Nombre de componente para el contador
+  name: 'ContadorApp',
   computed: {
-    ...mapState(['contador'])  // Accedemos al contador desde Vuex
+    ...mapState(['contador'])
   },
   methods: {
-    ...mapMutations(['incrementar', 'decrementar'])  // Mutaciones de Vuex
+    ...mapMutations(['incrementar', 'decrementar'])
   }
 };
 </script>

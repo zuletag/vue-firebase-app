@@ -1,18 +1,16 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': '/src', // Asegura que '@' apunte a la carpeta 'src/'
     },
+  },
+  test: {
+    globals: true, // Habilitar los métodos globales como describe, it, expect
+    environment: 'jsdom', // Entorno de pruebas basado en un DOM simulado
   },
 })
